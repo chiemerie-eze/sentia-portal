@@ -158,6 +158,15 @@ if "logged_in" not in st.session_state or not st.session_state.logged_in:
     st.error("Please log in first.")
     st.stop()
 
+top_col1, top_col2 = st.columns([1, 6])
+
+with top_col1:
+    st.markdown('<div class="secondary-btn">', unsafe_allow_html=True)
+    if st.button("← Home"):
+        st.switch_page("app.py")
+    st.markdown('</div>', unsafe_allow_html=True)
+
+st.write("")
 
 @st.cache_resource
 def load_artifacts():
@@ -271,14 +280,25 @@ if st.button("Run Detection"):
         benign_count = int((prediction_series == "BENIGN").sum())
         suspicious_count = int(len(result_df) - benign_count)
 
+        total_records = len(result_df)
+        suspicious_ratio = (suspicious_count / total_records * 100) if total_records > 0 else 0
+
+        st.session_state["last_scan_summary"] = {
+                "file_name": uploaded_file.name,
+                "total_records": total_records,
+                "benign_count": benign_count,
+                "suspicious_count": suspicious_count,
+                "suspicious_ratio": suspicious_ratio
+            }
+
         saved_result_path = save_result_file(result_df, uploaded_file.name)
 
         save_scan_record(
-            original_filename=uploaded_file.name,
-            saved_result_path=saved_result_path,
-            benign_count=benign_count,
-            suspicious_count=suspicious_count
-        )
+                original_filename=uploaded_file.name,
+                saved_result_path=saved_result_path,
+                benign_count=benign_count,
+                suspicious_count=suspicious_count
+            )
 
         st.success("Detection completed successfully and saved to scan history.")
 

@@ -8,6 +8,13 @@ import feedparser
 import requests
 import streamlit as st
 
+# =========================
+# ENVIRONMENT VARIABLES
+# =========================
+TENANT_ID = os.getenv("SENTIA_TENANT_ID", "")
+CLIENT_ID = os.getenv("SENTIA_CLIENT_ID", "")
+CLIENT_SECRET = os.getenv("SENTIA_CLIENT_SECRET", "")
+
 from db_utils import (
     init_db,
     create_user,
@@ -260,8 +267,9 @@ def auth_shell():
 # =========================
 # STYLING
 # =========================
-st.markdown("""
-<style>
+def apply_shared_styles():
+    st.markdown("""
+    <style>
 :root {
     --bg-1: #020617;
     --bg-2: #06152f;
@@ -481,9 +489,10 @@ div[data-baseweb="notification"] * {
 
 #MainMenu {visibility: hidden;}
 footer {visibility: hidden;}
-header {visibility: hidden;}
+/* header must stay visible so mobile users can open the sidebar */
 </style>
 """, unsafe_allow_html=True)
+apply_shared_styles()    
 
 # =========================
 # SIDEBAR
@@ -509,6 +518,9 @@ if "user_email" not in st.session_state:
 
 if "auth_mode" not in st.session_state:
     st.session_state.auth_mode = "login"
+
+if "current_page" not in st.session_state:
+    st.session_state.current_page = "home"
 
 if "verify_email" not in st.session_state:
     st.session_state.verify_email = ""
@@ -773,6 +785,7 @@ def dashboard():
         f"<h1 class='page-title'>Welcome, {st.session_state.user_name}</h1>",
         unsafe_allow_html=True
     )
+
     st.markdown(
         "<p class='page-subtitle'>Sentia Business Support Portal</p>",
         unsafe_allow_html=True
@@ -780,11 +793,32 @@ def dashboard():
 
     st.write("")
 
+    st.markdown("### Get Started")
+
+    b1, b2, b3 = st.columns(3)
+
+    with b1:
+        if st.button("Run Scan", use_container_width=True):
+            st.switch_page("pages/1_Run_Scan.py")
+
+    with b2:
+        if st.button("Reports", use_container_width=True):
+            st.switch_page("pages/2_Reports.py")
+
+    with b3:
+        if st.button("Guidance", use_container_width=True):
+            st.switch_page("pages/3_Guidance.py")
+
+    st.write("")
+
     m1, m2, m3 = st.columns(3)
+
     with m1:
         st.metric("Business Support", "Active")
+
     with m2:
         st.metric("Digital Presence", "Growing")
+
     with m3:
         st.metric("Trusted Guidance", "Available")
 
@@ -865,9 +899,8 @@ def dashboard():
 
     st.markdown("</div>", unsafe_allow_html=True)
 
-    st.info("Use the sidebar to explore scan tools, reports, guidance, and history as needed.")
-
     st.write("")
+
     if st.button("Logout"):
         log_auth_event(st.session_state.user_email, "logout", "success", "User logged out")
         st.session_state.logged_in = False

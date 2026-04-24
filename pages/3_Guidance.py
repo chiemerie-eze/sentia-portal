@@ -1,7 +1,6 @@
 from pathlib import Path
 
 import streamlit as st
-
 # =========================
 # PAGE CONFIG
 # =========================
@@ -34,6 +33,16 @@ st.sidebar.caption("Secure Your Digital Future")
 if "logged_in" not in st.session_state or not st.session_state.logged_in:
     st.error("Please log in first.")
     st.stop()
+
+top_col1, top_col2 = st.columns([1, 6])
+
+with top_col1:
+    st.markdown('<div class="secondary-btn">', unsafe_allow_html=True)
+    if st.button("← Home"):
+        st.switch_page("app.py")
+    st.markdown('</div>', unsafe_allow_html=True)
+
+st.write("")
 
 user_email = st.session_state.get("user_email", "").lower()
 is_admin = user_email == ADMIN_EMAIL.lower()
