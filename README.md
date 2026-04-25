@@ -1,6 +1,6 @@
 # Sentia Security Portal
 
-A business-focused cybersecurity platform integrating a Machine Learning-Based Intrusion Detection System (MLBIDS) for analysing network traffic and supporting security decision-making.
+A web-based cybersecurity platform integrating a Machine Learning-Based Intrusion Detection System (MLBIDS) to analyse network traffic, detect threats, and support security decision-making for small businesses.
 
 ---
 
