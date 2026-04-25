@@ -227,7 +227,7 @@ st.write(
 
 st.dataframe(
     df[["Scan Time", "Filename", "Benign", "Suspicious", "Status"]],
-    use_container_width=True
+    width="stretch"
 )
 st.markdown("</div>", unsafe_allow_html=True)
 
