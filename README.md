@@ -40,7 +40,7 @@ The system applies machine learning models to classify traffic as **benign or ma
 ### 🔐 Login Interface  
 ![Login](assets/login.png)
 
-### 📊 Model Performance Dashboard  
+### 📊 Model Performance Dashboard 
 ![Dashboard](assets/dashboard.png)
 
 ### 📈 Detection & Evaluation Results  
