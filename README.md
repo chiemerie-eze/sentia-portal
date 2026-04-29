@@ -10,7 +10,7 @@ This project was developed as part of my MSc Applied Cybersecurity research, foc
 
 The application is deployed and accessible via Streamlit Cloud:
 
-🔗 https://sentia-app-hdcztdqjdhwffgkdxpvmg.streamlit.app/
+🔗 [https://sentia-app-hdcztdqjdhwffgkdxpvmg.streamlit.app/](https://sentia-app-hdczdtqjdwhfftgkdxpvmg.streamlit.app/)
 
 ---
 
