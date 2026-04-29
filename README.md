@@ -24,6 +24,19 @@ https://sentia-app-hdczdtqjdwhfftgkdxpvmg.streamlit.app/
 - Admin Dashboard & Model Evaluation
 
 ---
+## 📸 Application Preview  
+
+### Dashboard  
+System entry point for secure access and user authentication.  
+![Dashboard](assets/dashboard.png)
+
+### Threat Detection & Model Evaluation  
+Machine learning models evaluated using key classification metrics.  
+![Detection](assets/detection.png)
+
+### Model Performance Reports  
+Summary of detection results and system insights for decision-making.  
+![Report](assets/report.png)
 
 ## © Sentia Technologies Limited
 This project is developed as part of an academic submission.  
