@@ -8,9 +8,9 @@ This project was developed as part of my MSc Applied Cybersecurity research, foc
 
 ## 🌐 Live Application
 
-The application is deployed and accessible via Streamlit Cloud:
-
-🔗 [https://sentia-app-hdcztdqjdhwffgkdxpvmg.streamlit.app/](https://sentia-app-hdczdtqjdwhfftgkdxpvmg.streamlit.app/)
+The application is deployed and accessible :
+[https://sentiatechnologieslimited.com/
+](https://portal.sentiatechnologieslimited.com/signup)
 
 ---
 
@@ -56,7 +56,7 @@ The system applies machine learning models to classify traffic as **benign or ma
 - **SQLite** – Storage of scan history and results  
 - **Docker** – Containerisation  
 - **Streamlit Cloud** – Application deployment  
-- **AWS EC2 (Planned)** – Future cloud deployment  
+- **AWS EC2 (Deployed)** – Done  
 
 ---
 
@@ -113,7 +113,7 @@ It combines:
 PraiseGod Eze  
 MSc Applied Cybersecurity – University of Sunderland  
 Aspiring SOC Analyst | Cloud & Security Enthusiast  
-Founder – Sentia Technologies  
+Founder – Sentia Technologies 
 
 🔗 https://www.linkedin.com/in/praisegod-eze-67728b306  
 
@@ -122,4 +122,4 @@ Founder – Sentia Technologies
 ## 📌 Notes
 
 This project is part of an academic submission and ongoing development.  
-Further improvements and cloud deployment are in progress.
+Further improvements and cloud deployment are succussfully Active.
